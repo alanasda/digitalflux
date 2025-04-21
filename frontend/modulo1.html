@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CYBER.DIGITAL</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+  <style>
+    :root {
+      --primary: #FF6B00;
+      --secondary: #FFD600;
+    }
+    
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+    }
+    
+    .hero-banner {
+      height: 70vh;
+      min-height: 600px;
+      position: relative;
+    }
+    
+    .module-container {
+      scroll-behavior: smooth;
+    }
+    .module-container::-webkit-scrollbar {
+      height: 8px;
+    }
+    .module-container::-webkit-scrollbar-track {
+      background: #1A1A1A; 
+    }
+    .module-container::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 4px;
+    }
+    
+    .theme-btn {
+      position: fixed;
+      bottom: 150px;
+      right: 20px;
+      z-index: 1000;
+      background: var(--primary);
+      color: black;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 15px var(--primary);
+      border: none;
+      transition: all 0.3s ease;
+    }
+    .theme-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--primary);
+    }
+    
+    .module-cover {
+      border: 1px solid var(--primary);
+    }
+    
+    .kiwify-player {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      background: #000;
+    }
+    
+    .kiwify-player iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    .protected-content {
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+    }
+    
+    .content-protector {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      pointer-events: none;
+    }
+    
+    /* Temas */
+    .theme-1 { --primary: #FF6B00; --secondary: #FFD600; }
+    .theme-2 { --primary: #00FF88; --secondary: #00C2FF; }
+    .theme-3 { --primary: #9B00FF; --secondary: #FF008A; }
+    .theme-4 { --primary: #FF0000; --secondary: #FFD900; }
+    .theme-5 { --primary: #00FFE0; --secondary: #0066FF; }
+    .theme-6 { --primary: #FF00F5; --secondary: #7200FF; }
+    .theme-7 { --primary: #15FF00; --secondary: #0033FF; }
+    .theme-8 { --primary: #FFAA00; --secondary: #FF0062; }
+    .theme-9 { --primary: #FF4500; --secondary: #FF6347; }
+    .theme-10 { --primary: #32CD32; --secondary: #7CFC00; }
+  </style>
+</head>
+<body class="bg-black text-white theme-1">  
+  <button class="theme-btn" onclick="changeTheme()">Trocar Tema</button>
+  
+  <header class="fixed w-full top-0 z-50 bg-black/90 backdrop-blur-md py-4 px-6 flex justify-between items-center">
+    <div class="flex items-center gap-4">
+      <div id="theme-logo" class="w-12 h-12 rounded-full fade-in" style="background-color: var(--primary); animation-delay: 0.5s;"></div>
+      <nav class="desktop-nav flex gap-6">
+        <a href="#" class="transition text-[color:var(--primary)]"></a>
+        <a href="#" class="transition text-[color:var(--primary)]"></a>
+        <a href="#" class="transition text-[color:var(--primary)]"></a>
+      </nav>
+    </div>  
+    <div class="flex items-center gap-4">
+      <div class="relative fade-in" style="animation-delay: 1.5s;">
+        <input id="moduleSearch" type="search" 
+               class="bg-gray-800 rounded-full py-2 px-4 pr-10 w-48 text-sm"
+               placeholder="Pesquisar módulo">
+        <i class="fas fa-search absolute right-3 top-3 text-[color:var(--primary)]"></i>
+      </div>
+      <i class="fas fa-bell text-xl text-[color:var(--primary)] cursor-pointer fade-in" style="animation-delay: 1.7s;"></i>
+    </div>
+  </header>
+  
+  <section class="hero-banner">
+    <div class="absolute inset-0 bg-black/60"></div>
+    <img src="1fundo.png" 
+         class="absolute top-0 left-0 w-full h-full object-cover"
+         alt="Background Cyber Digital">
+    <div class="relative container mx-auto px-4 h-full flex items-center">
+      <div class="max-w-2xl">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        
+        
+        
+        
+       
+        <h1 class="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-[color:var(--primary)] to-[color:var(--secondary)] bg-clip-text text-transparent">
+      
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-300 mb-8">
+      
+        </p>
+        <button class="bg-gradient-to-r from-[color:var(--primary)] to-[color:var(--secondary)] text-black px-8 py-3 rounded-full hover:shadow-lg hover:shadow-[color:var(--primary)]/30 transition">
+          
+        </button>
+      </div>
+    </div>
+  </section>
+  
+  <main class="container mx-auto px-4 py-12 mt-16">
+    <section class="mb-16">
+      <div class="flex items-center gap-4 mb-8">
+        <div class="h-1 w-12 bg-gradient-to-r from-[color:var(--primary)] to-[color:var(--secondary)]"></div>
+        <h2 class="text-2xl font-bold">Módulos do Curso</h2>
+      </div>
+      <div class="module-container flex overflow-x-auto pb-6 gap-6 scroll-smooth" id="modulesContainer">
+        <!-- Módulo 1 -->
+        <div class="min-w-[300px] bg-gray-900 rounded-xl overflow-hidden module-cover cursor-pointer hover:transform hover:scale-105 transition" data-title="Introdução" onclick="openVideo(this)">
+          <div class="aspect-[3/4] relative">
+            <img src="bemvindos.jpg" class="w-full h-full object-cover" alt="Introdução">
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+             
+            </div>
+          </div>
+        </div>
+        
+        <!-- Módulo 2 -->
+        <div class="min-w-[300px] bg-gray-900 rounded-xl overflow-hidden module-cover cursor-pointer hover:transform hover:scale-105 transition" data-title="Nichos Lucrativos" onclick="openVideo(this)">
+          <div class="aspect-[3/4] relative">
+            <img src="mentalidade.jpg" class="w-full h-full object-cover" alt="Nichos Lucrativos">
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+             
+            </div>
+          </div>
+        </div>
+        
+        <!-- Módulo 3 -->
+        <div class="min-w-[300px] bg-gray-900 rounded-xl overflow-hidden module-cover cursor-pointer hover:transform hover:scale-105 transition" data-title="Criação de Produtos" onclick="openVideo(this)">
+          <div class="aspect-[3/4] relative">
+            <img src="conhecientoe.jpg" class="w-full h-full object-cover" alt="Criação de Produtos">
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+              
+            </div>
+          </div>
+        </div>
+        
+        <!-- Módulo 4 -->
+        <div class="min-w-[300px] bg-gray-900 rounded-xl overflow-hidden module-cover cursor-pointer hover:transform hover:scale-105 transition" data-title="Anúncios que Convertem" onclick="openVideo(this)">
+          <div class="aspect-[3/4] relative">
+            <img src="top.jpg" class="w-full h-full object-cover" alt="Anúncios que Convertem">
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+           
+            </div>
+          </div>
+        </div>
+        
+        <!-- Módulo 5 -->
+        <div class="min-w-[300px] bg-gray-900 rounded-xl overflow-hidden module-cover cursor-pointer hover:transform hover:scale-105 transition" data-title="Tráfego Pago" onclick="openVideo(this)">
+          <div class="aspect-[3/4] relative">
+            <img src="zona.jpg" class="w-full h-full object-cover" alt="Tráfego Pago">
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+              
+            </div>
+          </div>
+        </div>
+        
+        <!-- Módulo 6 -->
+        <div class="min-w-[300px] bg-gray-900 rounded-xl overflow-hidden module-cover cursor-pointer hover:transform hover:scale-105 transition" data-title="Vendas Online" onclick="openVideo(this)">
+          <div class="aspect-[3/4] relative">
+            <img src="toa.jpg" class="w-full h-full object-cover" alt="Vendas Online">
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+              
+            </div>
+          </div>
+        </div>
+        
+        <!-- Módulo 7 -->
+        <div class="min-w-[300px] bg-gray-900 rounded-xl overflow-hidden module-cover cursor-pointer hover:transform hover:scale-105 transition" data-title="Copywriting" onclick="openVideo(this)">
+          <div class="aspect-[3/4] relative">
+            <img src="pago.jpg" class="w-full h-full object-cover" alt="Copywriting">
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+              
+            </div>
+          </div>
+        </div>
+        
+        <!-- Módulo 8 -->
+        <div class="min-w-[300px] bg-gray-900 rounded-xl overflow-hidden module-cover cursor-pointer hover:transform hover:scale-105 transition" data-title="Automação" onclick="openVideo(this)">
+          <div class="aspect-[3/4] relative">
+            <img src="direto.jpg" class="w-full h-full object-cover" alt="Automação">
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+             
+            </div>
+          </div>
+        </div>
+        
+        <!-- Módulo 9 -->
+        <div class="min-w-[300px] bg-gray-900 rounded-xl overflow-hidden module-cover cursor-pointer hover:transform hover:scale-105 transition" data-title="Métricas" onclick="openVideo(this)">
+          <div class="aspect-[3/4] relative">
+            <img src="anonimato.jpg" class="w-full h-full object-cover" alt="Métricas">
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+             
+            </div>
+          </div>
+        </div>
+        
+        <!-- Módulo 10 -->
+        <div class="min-w-[300px] bg-gray-900 rounded-xl overflow-hidden module-cover cursor-pointer hover:transform hover:scale-105 transition" data-title="Bônus" onclick="openVideo(this)">
+          <div class="aspect-[3/4] relative">
+            <img src="dollar.jpg" class="w-full h-full object-cover" alt="Bônus">
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <div class="bg-gray-900 rounded-xl p-6 mb-12">
+      <div class="flex items-center justify-between mb-4">
+        <h4 class="text-lg font-bold">Progresso do Curso</h4>
+        <span class="text-[color:var(--primary)]" id="progressPercentage">0%</span>
+      </div>
+      <div class="w-full bg-gray-800 rounded-full h-3">
+        <div id="progressBar" class="bg-gradient-to-r from-[color:var(--primary)] to-[color:var(--secondary)] h-full rounded-full w-0 transition-all duration-500"></div>
+      </div>
+    </div>
+    
+    <section class="mb-16">
+      <h3 class="text-2xl font-bold mb-4">Aulas Concluídas</h3>
+      <ul id="completedList" class="list-disc pl-5 text-gray-300"></ul>
+    </section>
+  </main>
+  
+  <footer class="fixed bottom-0 w-full bg-black/90 backdrop-blur-md border-t border-gray-800 mobile-nav">
+    <div class="flex justify-around items-center h-16">
+      <a href="#" class="text-center px-2 py-1 text-sm text-[color:var(--primary)]">
+        <i class="fas fa-home block text-xl mb-1"></i>Home</a>
+      <a href="#" class="text-center px-2 py-1 text-sm text-[color:var(--primary)]">
+        <i class="fas fa-book block text-xl mb-1"></i>Aulas</a>
+      <a href="#" class="text-center px-2 py-1 text-sm text-[color:var(--primary)]">
+        <i class="fas fa-cog block text-xl mb-1"></i>COMUNIDADE</a>
+        
+    </div>
+  </footer>
+  
+  <!-- Player de Vídeo -->
+  <div class="fixed inset-0 bg-black/90 z-50 hidden" id="videoModal">
+    <div class="h-full flex items-center justify-center p-4">
+      <div class="w-full max-w-6xl bg-gray-900/80 backdrop-blur-xl rounded-2xl overflow-hidden border-2 border-[color:var(--primary)]">
+        <div class="p-4 border-b border-white/10 flex justify-between items-center">
+          <h2 id="videoTitle" class="text-2xl font-bold bg-gradient-to-r from-[color:var(--primary)] to-[color:var(--secondary)] bg-clip-text text-transparent">
+            Carregando...
+          </h2>
+          <button onclick="closeVideo()" class="text-white hover:text-[color:var(--primary)] text-xl">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 p-6">
+          <div class="lg:col-span-2">
+            <div class="kiwify-player protected-content" id="kiwifyPlayer">
+              <div class="content-protector"></div>
+            </div>
+            
+            <div class="mt-4 flex justify-between items-center">
+              <div class="flex gap-4">
+                <button id="prevAulaBtn" onclick="prevAula()" class="text-[color:var(--primary)] hover:text-[color:var(--secondary)] transition hidden">
+                  <i class="fas fa-arrow-left"></i> Anterior
+                </button>
+                <button onclick="likeLesson()" class="text-[color:var(--primary)] hover:text-[color:var(--secondary)] transition">
+                  <i class="fas fa-thumbs-up"></i> Curtir
+                </button>
+                <button onclick="completeLesson()" class="text-[color:var(--primary)] hover:text-[color:var(--secondary)] transition">
+                  <i class="fas fa-check-circle"></i> Concluir
+                </button>
+              </div>
+              <div class="flex gap-4">
+                <button id="nextAulaBtn" onclick="nextAula()" class="text-[color:var(--primary)] hover:text-[color:var(--secondary)] transition hidden">
+                  Próxima <i class="fas fa-arrow-right"></i>
+                </button>
+                <div class="text-white/60 text-sm">
+                  <span id="currentTime">00:00</span> / <span id="totalTime">00:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="space-y-4">
+            <div class="bg-gradient-to-br from-[color:var(--primary)]/20 to-[color:var(--secondary)]/10 p-4 rounded-xl border border-white/10">
+              <h3 class="font-bold mb-2 text-[color:var(--primary)]">Click em próxima</h3>
+              <button class="w-full bg-[color:var(--primary)] text-black py-2 rounded-lg font-bold hover:opacity-90 transition">
+                <i class=""></i>Click
+              </button>
+            </div>
+            
+           
+            
+            <div class="bg-gradient-to-br from-[color:var(--primary)]/20 to-[color:var(--secondary)]/10 p-4 rounded-xl border border-white/10">
+              <h3 class="font-bold mb-2">COMUNIDADE</h3>
+              <button class="w-full bg-white/10 text-white py-2 rounded-lg hover:bg-white/20 transition">
+                <i class="fas fa-users mr-2"></i>Acessar
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="p-4 bg-black/30 border-t border-white/10">
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-white/60 font-medium"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  // Configurações dos Módulos (agora com múltiplas aulas)
+  const videoModules = {
+    "Introdução": {
+      aulas: [
+        { id: "Tw_IGPK4S_I", titulo: "Introdução ao Curso", duration: "15:20" },
+        { id: "dQw4w9WgXcQ", titulo: "Configuração Inicial", duration: "18:30" }
+      ]
+    },
+    "Nichos Lucrativos": {
+      aulas: [
+        { id: "dQw4w9WgXcQ", titulo: "Identificando Nichos", duration: "22:45" },
+        { id: "dQw4w9WgXcQ", titulo: "Validação de Nichos", duration: "20:10" },
+        { id: "dQw4w9WgXcQ", titulo: "Monetização", duration: "25:30" }
+      ]
+    },
+    "Criação de Produtos": {
+      aulas: [
+        { id: "dQw4w9WgXcQ", titulo: "Estrutura de Produtos", duration: "18:30" },
+        { id: "dQw4w9WgXcQ", titulo: "Produção de Conteúdo", duration: "25:30" }
+      ]
+    },
+    "Anúncios que Convertem": {
+      aulas: [
+        { id: "dQw4w9WgXcQ", titulo: "Copy para Anúncios", duration: "25:15" }
+      ]
+    },
+    "Tráfego Pago": {
+      aulas: [
+        { id: "dQw4w9WgXcQ", titulo: "Facebook Ads", duration: "30:00" },
+        { id: "dQw4w9WgXcQ", titulo: "Google Ads", duration: "25:30" },
+        { id: "dQw4w9WgXcQ", titulo: "TikTok Ads", duration: "20:00" }
+      ]
+    },
+    "Vendas Online": {
+      aulas: [
+        { id: "dQw4w9WgXcQ", titulo: "Páginas de Vendas", duration: "20:45" },
+        { id: "dQw4w9WgXcQ", titulo: "Checkout Otimizado", duration: "17:30" }
+      ]
+    },
+    "Copywriting": {
+      aulas: [
+        { id: "dQw4w9WgXcQ", titulo: "Técnicas Avançadas", duration: "28:10" }
+      ]
+    },
+    "Automação": {
+      aulas: [
+        { id: "dQw4w9WgXcQ", titulo: "Ferramentas Básicas", duration: "35:20" },
+        { id: "dQw4w9WgXcQ", titulo: "Workflows Avançados", duration: "15:20" }
+      ]
+    },
+    "Métricas": {
+      aulas: [
+        { id: "dQw4w9WgXcQ", titulo: "Análise de Dados", duration: "19:55" }
+      ]
+    },
+    "Bônus": {
+      aulas: [
+        { id: "dQw4w9WgXcQ", titulo: "Bônus 1", duration: "42:30" },
+        { id: "dQw4w9WgXcQ", titulo: "Bônus 2", duration: "30:15" },
+        { id: "dQw4w9WgXcQ", titulo: "Bônus 3", duration: "18:00" }
+      ]
+    }
+  };
+
+  // Variáveis globais
+  let currentTheme = localStorage.getItem("theme") || 1;
+  let progress = parseInt(localStorage.getItem("progress")) || 0;
+  let completedLessons = JSON.parse(localStorage.getItem("completedLessons")) || [];
+  let currentVideo = null;
+  let timerInterval = null;
+  let currentModule = null;
+  let currentAulaIndex = 0;
+  let totalAulasModule = 0;
+
+  // Inicialização
+  document.addEventListener('DOMContentLoaded', function() {
+    updateThemeElements();
+    updateProgressDisplay();
+    renderCompletedLessons();
+    setupPlayerProtection();
+    setupModuleSearch();
+  });
+
+  // Funções do Tema
+  function changeTheme() {
+    currentTheme = currentTheme % 10 + 1;
+    document.body.className = `bg-black text-white theme-${currentTheme}`;
+    localStorage.setItem("theme", currentTheme);
+    updateThemeElements();
+  }
+
+  function updateThemeElements() {
+    const primaryColor = getComputedStyle(document.body).getPropertyValue('--primary');
+    document.getElementById('theme-logo').style.backgroundColor = primaryColor;
+  }
+
+  // Sistema de Progresso
+  function updateProgressDisplay() {
+    document.getElementById('progressBar').style.width = `${progress}%`;
+    document.getElementById('progressPercentage').textContent = `${progress}%`;
+  }
+
+  function completeLesson() {
+    const lessonTitle = `${currentModule} - ${videoModules[currentModule].aulas[currentAulaIndex].titulo}`;
+    
+    if(!completedLessons.includes(lessonTitle)) {
+      completedLessons.push(lessonTitle);
+      localStorage.setItem("completedLessons", JSON.stringify(completedLessons));
+      
+      // Atualiza progresso (considerando todas as aulas do curso)
+      const totalAulas = Object.values(videoModules).reduce((acc, module) => acc + module.aulas.length, 0);
+      progress = Math.min(100, Math.round((completedLessons.length / totalAulas) * 100));
+      localStorage.setItem("progress", progress);
+      
+      updateProgressDisplay();
+      renderCompletedLessons();
+    }
+    
+    // Auto-avança para próxima aula se existir
+    if(currentAulaIndex < totalAulasModule - 1) {
+      nextAula();
+    } else {
+      closeVideo();
+    }
+  }
+
+  function addCompletedLesson(lesson) {
+    if(!completedLessons.includes(lesson)) {
+      completedLessons.push(lesson);
+      localStorage.setItem("completedLessons", JSON.stringify(completedLessons));
+      renderCompletedLessons();
+    }
+  }
+
+  function renderCompletedLessons() {
+    const list = document.getElementById('completedList');
+    list.innerHTML = completedLessons.map(item => `
+      <li class="mb-2 flex items-center">
+        <i class="fas fa-check-circle text-[color:var(--primary)] mr-2"></i>
+        ${item}
+      </li>
+    `).join('');
+  }
+
+  // Player de Vídeo e Navegação entre Aulas
+  function openVideo(moduleElement) {
+    const moduleTitle = moduleElement.getAttribute('data-title');
+    currentModule = moduleTitle;
+    currentAulaIndex = 0; // Começa pela primeira aula
+    
+    const moduleInfo = videoModules[moduleTitle];
+    totalAulasModule = moduleInfo.aulas.length;
+    
+    loadAula(currentAulaIndex);
+    document.getElementById('videoModal').style.display = 'flex';
+  }
+
+  function loadAula(index) {
+    const aula = videoModules[currentModule].aulas[index];
+    currentVideo = aula.titulo;
+    
+    document.getElementById('videoTitle').textContent = aula.titulo;
+    document.getElementById('totalTime').textContent = aula.duration;
+    document.getElementById('currentTime').textContent = "00:00";
+    
+    // Configura o player
+    const playerContainer = document.getElementById('kiwifyPlayer');
+    playerContainer.innerHTML = `
+      <div class="content-protector"></div>
+      <iframe src="https://www.youtube-nocookie.com/embed/${aula.id}?rel=0&modestbranding=1&iv_load_policy=3&enablejsapi=1"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              id="videoFrame">
+      </iframe>
+    `;
+    
+    updateNavigationButtons();
+    startTimeUpdate();
+  }
+
+  function updateNavigationButtons() {
+    const prevBtn = document.getElementById('prevAulaBtn');
+    const nextBtn = document.getElementById('nextAulaBtn');
+    
+    prevBtn.style.display = currentAulaIndex > 0 ? 'block' : 'none';
+    nextBtn.style.display = currentAulaIndex < totalAulasModule - 1 ? 'block' : 'none';
+  }
+
+  function nextAula() {
+    if (currentAulaIndex < totalAulasModule - 1) {
+      currentAulaIndex++;
+      loadAula(currentAulaIndex);
+    }
+  }
+
+  function prevAula() {
+    if (currentAulaIndex > 0) {
+      currentAulaIndex--;
+      loadAula(currentAulaIndex);
+    }
+  }
+
+  function closeVideo() {
+    if (timerInterval) clearInterval(timerInterval);
+    document.getElementById('videoModal').style.display = 'none';
+    const iframe = document.getElementById('videoFrame');
+    if (iframe) iframe.src = '';
+    currentVideo = null;
+    currentModule = null;
+  }
+
+  function startTimeUpdate() {
+    if (timerInterval) clearInterval(timerInterval);
+    let seconds = 0;
+    const duration = document.getElementById('totalTime').textContent;
+    const [mins, secs] = duration.split(':').map(Number);
+    const totalSeconds = mins * 60 + secs;
+    
+    timerInterval = setInterval(() => {
+      if (document.getElementById('videoModal').style.display === 'none') {
+        clearInterval(timerInterval);
+        return;
+      }
+      
+      seconds = Math.min(seconds + 1, totalSeconds);
+      const displayMins = Math.floor(seconds / 60).toString().padStart(2, '0');
+      const displaySecs = (seconds % 60).toString().padStart(2, '0');
+      document.getElementById('currentTime').textContent = `${displayMins}:${displaySecs}`;
+      
+      if (seconds >= totalSeconds) clearInterval(timerInterval);
+    }, 1000);
+  }
+
+  function likeLesson() {
+    alert(`Você curtiu a aula "${currentVideo}"!`);
+  }
+
+  // Proteção do Conteúdo
+  function setupPlayerProtection() {
+    document.addEventListener('contextmenu', function(e) {
+      if (e.target.closest('.protected-content')) {
+        e.preventDefault();
+        alert('Menu de contexto desabilitado para proteger o conteúdo.');
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.target.closest('.protected-content')) {
+        if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'C' || e.key === 'J'))) {
+          e.preventDefault();
+          alert('Acesso ao inspetor desabilitado.');
+        }
+      }
+    });
+  }
+
+  // Busca de Módulos
+  function setupModuleSearch() {
+    document.getElementById('moduleSearch').addEventListener('input', function() {
+      const searchTerm = this.value.toLowerCase();
+      document.querySelectorAll('#modulesContainer > div').forEach(module => {
+        const title = module.getAttribute('data-title').toLowerCase();
+        module.style.display = title.includes(searchTerm) ? "" : "none";
+      });
+    });
+  }
+
+  // Fechar modal ao clicar fora
+  window.onclick = function(event) {
+    if (event.target === document.getElementById('videoModal')) {
+      closeVideo();
+    }
+  };
+</script>
+</body>
+</html>
